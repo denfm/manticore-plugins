@@ -1,0 +1,10 @@
+GO := /usr/local/bin/go
+.PHONY: *
+
+build:
+	@$(GO) build -buildmode=c-shared -o ../../build/groupsort.so .
+
+test:
+	@$(GO) test -v -race -timeout 5s ./...
+
+.DEFAULT_GOAL := build

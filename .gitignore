@@ -1,0 +1,4 @@
+.idea
+manticore
+*.iml
+Makefile
