@@ -8,6 +8,11 @@ import (
 	"strings"
 )
 
+//export groupsort_ver
+func groupsort_ver() int {
+	return 9
+}
+
 //export group_sort_init
 func group_sort_init(init *SPH_UDF_INIT, args *SPH_UDF_ARGS, errmsg *ERR_MSG) int32 {
 	if args.arg_count < 2 || args.arg_count > 3 || args.arg_type(0) != SPH_UDF_TYPE_STRING {
