@@ -1,10 +1,14 @@
 GO := /usr/local/bin/go
+GCC := /usr/bin/gcc
 .PHONY: *
 
-build:
-	@$(GO) build -buildmode=c-shared -o ../../build/groupsort.so .
+build-goc:
+	@$(GO) build -buildmode=c-shared -o ../../build/group_sort.so .
 
-test:
+test-goc:
 	@$(GO) test -v -race -timeout 5s ./...
 
-.DEFAULT_GOAL := build
+build-cpp:
+	@$(GCC) sort-group.cpp -shared -o ../../build/sort_group.so -g -fPIC -fvisibility=hidden
+
+.DEFAULT_GOAL := build-goc
