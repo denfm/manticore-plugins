@@ -21,12 +21,13 @@ func TestParseInteger(t *testing.T) {
 }
 
 func TestParseSimilarPosition(t *testing.T) {
-	res, err := ParseInteger("005,010,561")
+	res, err := ParseInteger("005,010,561,000")
 	assert.NoError(t, err)
-	assert.Len(t, res, 3)
+	assert.Len(t, res, 4)
 	assert.True(t, res[0] == 5)
 	assert.True(t, res[1] == 10)
 	assert.True(t, res[2] == 561)
+	assert.True(t, res[3] == 0)
 
 	res, err = ParseInteger("a005,010,561")
 	assert.Error(t, err)

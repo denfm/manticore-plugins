@@ -39,10 +39,16 @@ func ParseSimilarPosition(str string) ([]int, error) {
 	var items []int
 
 	for _, v := range strings.Split(str, ",") {
-		position, err := strconv.Atoi(regexp.MustCompile(`(?m)^0+`).ReplaceAllString(v, ""))
+		parsePosition := regexp.MustCompile(`(?m)^0+`).ReplaceAllString(v, "")
+		if parsePosition == "" {
+			parsePosition = "0"
+		}
+
+		position, err := strconv.Atoi(parsePosition)
 		if err != nil {
 			return items, err
 		}
+
 		items = append(items, position)
 	}
 	return items, nil
