@@ -8,8 +8,8 @@ import (
 	"strings"
 )
 
-//export groupsort_ver
-func groupsort_ver() int {
+//export group_sort_ver
+func group_sort_ver() int {
 	return 9
 }
 
